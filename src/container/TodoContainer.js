@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InsertTodo from '../components/InsertTodo';
 import TodoLists from '../components/TodoLists';
-import { addTodo, delTodo, toggleTodo } from '../modules/todos';
+import { addTodo, delTodo, delTodoAsync, toggleTodo, toggleTodoAsync } from '../modules/todos';
 
 const TodoContainer = () => {
     const todos = useSelector(state=>state.todos)
@@ -10,11 +10,19 @@ const TodoContainer = () => {
     const onAddTodo = (text) => {
         dispatch(addTodo(text))
     }
-    const onDelTodo = (id) => {
+    /* const onDelTodo = (id) => {
         dispatch(delTodo(id))
+    } */
+    //thunk 실습 
+    const onDelTodo = (id) => {
+        dispatch(delTodoAsync(id))
     }
-    const onToggleTodo = (id) => {
+    /* const onToggleTodo = (id) => {
         dispatch(toggleTodo(id))
+    } */
+    //thunk 실습
+    const onToggleTodo = (id) => {
+        dispatch(toggleTodoAsync(id))
     }
     return (
         <div>

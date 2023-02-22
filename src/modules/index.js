@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import posts from "./posts";
 import todos from "./todos";
 
 
@@ -7,5 +8,5 @@ import todos from "./todos";
 //합쳐진 리듀서를 루트리듀서
 //combineReducers({key: value})
 //모듈과 모듈 합치는 파일 rootreducer 만들면 스토어 만들 준비 완료
-const rootReducer = combineReducers({todos})
+const rootReducer = combineReducers({todos, posts})
 export default rootReducer;

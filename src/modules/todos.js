@@ -14,7 +14,8 @@ export const addTodo = (text) => ({  //객체 리턴은 항상 소괄호 씌워�
     type: ADD_TODO,  
     todo:{
         id: nextId++, 
-        text: text
+        text: text,
+        idDone:false
     }
 })
 
@@ -26,10 +27,21 @@ export const delTodo = (id) => ({
     type: DEL_TODO,
     id: id
 })
+//리덕스 thunk실습 사용 
+export const toggleTodoAsync = (id) => dispatch => {
+    setTimeout(()=>{
+        dispatch(toggleTodo(id))
+    },1000)
+}
+export const delTodoAsync = (id) => dispatch => {
+    setTimeout(()=>{
+        dispatch(delTodo(id))
+    }, 1000)
+}
 //3.리듀서함수
 export default function todos(state=[], action){
     switch(action.type){
-        case "ADD_TODO":
+        case ADD_TODO:
             return[
                 ...state,
                 action.todo

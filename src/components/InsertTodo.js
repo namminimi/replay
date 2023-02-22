@@ -8,6 +8,7 @@ const InsertTodo = ({onAddTodo}) => {
     }
     const onClick = () => {
         onAddTodo(text);
+        setText("")
     }
     return (
         <div>
